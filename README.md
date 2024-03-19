@@ -5,21 +5,13 @@
 ### 拉取代码
 
 ```shell
-git clone https://github.com/chingzio/gin-k8s-api.git
+git clone https://github.com/chingzio/gin-rdmg-service.git
 ```
 
 ### 创建数据库
 
 ```sql
-CREATE DATABASE `gin-k8s-db-test` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-```
-
-### 获取kubernetes集群config文件
-
-```shell
-# kubernetes集群master
-cat .kube/config
-# 复制配置文件至本地，在项目配置文件中会使用此文件保存在本地的路径
+CREATE DATABASE `gin-rdmg-service` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
 
 ### 修改配置文件
@@ -34,7 +26,6 @@ cat .kube/config
 | [database]   | DbUser     | 数据库用户名       |                    |               |
 | [database]   | DbPassWord | 数据库密码         |                    |               |
 | [database]   | DbName     | 数据库库名         |                    |               |
-| [kubernetes] | ConfigPath | k8s config文件路径 | /root/.kube/config | 绝对路径      |
 
 ### 下载依赖
 
