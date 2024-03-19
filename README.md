@@ -15,10 +15,11 @@ CREATE DATABASE `gin-rdmg-service` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4
 ```
 
 ### 修改配置文件
+config/app.ini
 
 | 配置分组     | 配置名称   | 配置描述           | 示例参数           | 备注          |
 | ------------ | ---------- | ------------------ | ------------------ | ------------- |
-| [app]        | AppName    | 项目名称           | gin-k8s-api        |               |
+| [app]        | AppName    | 项目名称           | gin-rdmg-service    |               |
 | [app]        | Port       | 项目监听端口       | :9000              | 冒号不能省略  |
 | [database]   | Db         | 数据库类型         | mysql              | 现只支持mysql |
 | [database]   | DbHost     | 数据库地址         | 127.0.0.1          |               |
