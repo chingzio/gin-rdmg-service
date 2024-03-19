@@ -1,4 +1,5 @@
-# gin-k8s-api
+# gin-rdmg-service
+基于gin框架的后端服务
 
 ## 【初始化】
 
