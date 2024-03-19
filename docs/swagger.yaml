@@ -1,0 +1,81 @@
+definitions:
+  commons.Result:
+    properties:
+      code:
+        type: integer
+      data: {}
+      message:
+        type: string
+    type: object
+  models.UserLogin:
+    properties:
+      password:
+        example: "123456"
+        type: string
+      username:
+        example: admin
+        type: string
+    type: object
+info:
+  contact:
+    email: chingzio@163.com
+    name: chingzio
+  description: gin-k8s-api swagger
+  title: gin-k8s-api swagger
+  version: "1.0"
+paths:
+  /auth/user/info:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/commons.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 用户详情
+      tags:
+      - 用户
+  /auth/user/logout:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/commons.Result'
+      security:
+      - ApiKeyAuth: []
+      summary: 用户登出
+      tags:
+      - 用户
+  /noauth/user/login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 用户登录名及密码
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserLogin'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/commons.Result'
+      summary: 用户登录
+      tags:
+      - 用户
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: X-Token
+    type: apiKey
+swagger: "2.0"
