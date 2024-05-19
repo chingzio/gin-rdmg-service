@@ -63,8 +63,7 @@ func Login(c *gin.Context) {
 	tokenJson := gin.H{
 		"token": "Bearer " + token,
 	}
-	var result = commons.ResultSuccess(tokenJson)
-	c.JSON(http.StatusOK, result)
+	c.JSON(http.StatusOK, commons.ResultSuccess(tokenJson))
 
 }
 
@@ -78,15 +77,12 @@ func GetUserInfo(c *gin.Context) {
 	username, _ := c.Get("username")
 	rolesValue, _ := c.Get("roleList")
 	roles := rolesValue.([]string)
-	var result commons.Result
 	var userInfo UserInfo
 	userInfo.Avatar = "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif"
 	userInfo.Introduction = ""
 	userInfo.Name = utils.Strval(username)
 	userInfo.Roles = roles
-	result.Code = 200
-	result.Data = userInfo
-	c.JSON(http.StatusOK, result)
+	c.JSON(http.StatusOK, commons.ResultSuccess(userInfo))
 }
 
 // @Summary 用户登出
@@ -96,9 +92,6 @@ func GetUserInfo(c *gin.Context) {
 // @Router /auth/user/logout [post]
 // @Security ApiKeyAuth
 func Logout(c *gin.Context) {
-	var result commons.Result
 	c.Set("username", nil)
-	result.Code = 200
-	result.Data = "success"
-	c.JSON(http.StatusOK, result)
+	c.JSON(http.StatusOK, commons.ResultSuccess(nil))
 }
